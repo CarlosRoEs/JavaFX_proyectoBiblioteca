@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="801.0" prefWidth="1090.0" stylesheets="@../style/bibliotecaStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BibliotecaController">
+   <children>
+      <VBox prefHeight="638.0" prefWidth="209.0" style="-fx-background-color: #2C65A7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="174.0" prefWidth="209.0">
+               <children>
+                  <Label layoutX="93.0" layoutY="74.0" text="BIBLIOTECA" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="79.0" fitWidth="89.0" layoutX="14.0" layoutY="48.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../image/libraryWhite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <JFXButton fx:id="btnHome" alignment="CENTER" buttonType="RAISED" onAction="#handerActionClick" prefHeight="63.0" prefWidth="209.0" ripplerFill="#dc4e42" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnMember" alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="143.0" onAction="#handerActionClick" prefHeight="63.0" prefWidth="209.0" ripplerFill="#dc4e42" text="Socios" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Member.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnBook" alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="143.0" onAction="#handerActionClick" prefHeight="63.0" prefWidth="209.0" ripplerFill="#dc4e42" text="Libros" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Books.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnReports" alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="206.0" onAction="#handerActionClick" prefHeight="63.0" prefWidth="209.0" ripplerFill="#dc4e42" text="Informes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Reports.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnHelp" alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="332.0" onAction="#handerActionClick" prefHeight="63.0" prefWidth="209.0" ripplerFill="#dc4e42" text="Ayuda" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Help.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane prefHeight="158.0" prefWidth="191.0" />
+         </children>
+      </VBox>
+      <AnchorPane layoutX="219.0" layoutY="14.0" prefHeight="102.0" prefWidth="857.0" styleClass="paneHeader" stylesheets="@../style/bibliotecaStyle.css" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label fx:id="lblPane" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="36.0" prefHeight="30.0" prefWidth="793.0" styleClass="paneHeader" text="SIN TEXTO" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+         </children>
+      </AnchorPane>
+      <StackPane fx:id="stackPane" layoutX="209.0" layoutY="126.0" prefHeight="502.0" prefWidth="856.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="126.0">
+         <children>
+            <GridPane fx:id="gpReports" style="-fx-background-color: #FFFFFF;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="94.0" prefHeight="655.0" prefWidth="287.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="226.0" prefWidth="287.0">
+                                 <children>
+                                    <Label layoutX="92.0" layoutY="14.0" text="INFORMES SOCIOS" textFill="#2a609f">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font></Label>
+                                    <JFXComboBox fx:id="cmbSeleccionaSocio" labelFloat="true" layoutX="14.0" layoutY="48.0" prefHeight="25.0" prefWidth="253.0" promptText="SELECCIONE SOCIO" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                                    <JFXButton buttonType="RAISED" layoutX="149.0" layoutY="141.0" onAction="#handlerMostrarDatosSocios" prefHeight="44.0" prefWidth="128.0" text="SOCIO" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Member.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="141.0" onAction="#handleMostrarListaSocio" prefHeight="44.0" prefWidth="128.0" text="LISTADO" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Reports.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                              <Separator prefWidth="200.0" />
+                              <AnchorPane prefHeight="200.0" prefWidth="287.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <VBox layoutX="67.0" layoutY="80.0" prefHeight="655.0" prefWidth="287.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="225.0" prefWidth="287.0">
+                                 <children>
+                                    <Label layoutX="92.0" layoutY="14.0" text="INFORMES SOCIOS" textFill="#2a609f">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font></Label>
+                                    <JFXComboBox fx:id="cmbSeleccionaLibro" labelFloat="true" layoutX="14.0" layoutY="48.0" prefHeight="25.0" prefWidth="253.0" promptText="SELECCIONE LIBRO" />
+                                    <JFXButton buttonType="RAISED" layoutX="149.0" layoutY="143.0" onAction="#handlerMostrarDatosLibros" prefHeight="44.0" prefWidth="128.0" text="LIBROS" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Books.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="143.0" onAction="#handleMostrarListaLibros" prefHeight="44.0" prefWidth="128.0" text="LISTADO" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Reports.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                              <Separator prefWidth="200.0" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <VBox layoutX="62.0" layoutY="70.0" prefHeight="655.0" prefWidth="287.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="225.0" prefWidth="287.0">
+                                 <children>
+                                    <Label layoutX="80.0" layoutY="14.0" text="INFORMES PRESTAMOS" textFill="#2a609f">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font></Label>
+                                    <JFXComboBox fx:id="cmbSeleccionaTipoPrestamo" labelFloat="true" layoutX="14.0" layoutY="48.0" onAction="#handlerLlenarComboDinamicoPrestamo" prefHeight="25.0" prefWidth="253.0" promptText="SELECCIONE TIPO PRESTAMO" />
+                                    <JFXButton fx:id="btnReportPrestamos" buttonType="RAISED" ellipsisString="" layoutX="152.0" layoutY="142.0" onAction="#handleReportPrestamos" prefHeight="44.0" prefWidth="43.0" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fx:id="imgButtonReportPrestamos" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/stop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXComboBox fx:id="cmbDinamicoPrestamo" labelFloat="true" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="253.0" />
+                                    <JFXButton buttonType="RAISED" layoutX="16.0" layoutY="142.0" onAction="#handleMostrarListaPrestamos" prefHeight="44.0" prefWidth="128.0" text="LISTADO" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Reports.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" ellipsisString="" layoutX="214.0" layoutY="142.0" onAction="#handlerLimpiarCamposInformes" prefHeight="44.0" prefWidth="43.0" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/clean.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                              <Separator prefWidth="200.0" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gpBook" prefHeight="661.0" prefWidth="854.0" style="-fx-background-color: #FFFFFF;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="563.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="733.0" spacing="20.0">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/searchBook.png" />
+                           </image></ImageView>
+                        <JFXTextField fx:id="txtSearchBook" labelFloat="true" onKeyTyped="#handlerSearchBook" prefHeight="25.0" prefWidth="295.0" promptText="Search...">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXButton fx:id="btnAddBook" alignment="CENTER_RIGHT" buttonType="RAISED" onAction="#handlerOpenAddBook" prefHeight="34.0" prefWidth="133.0" text="Añadir Libro" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/addBook.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                        <JFXButton fx:id="btnEditBook" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="383.0" layoutY="30.0" onAction="#handlerOpenEditBook" prefHeight="34.0" prefWidth="133.0" text="Editar Libro" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/editBook.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnDeleteBook" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="536.0" layoutY="30.0" onAction="#handlerDeleteBook" prefHeight="34.0" prefWidth="140.0" text="Eliminar Libro" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/deleteBook.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <TableView fx:id="tblBook" prefHeight="200.0" prefWidth="904.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="colum_idBook" prefWidth="75.0" text="ID BOOK" />
+                      <TableColumn fx:id="colum_isbn" prefWidth="75.0" text="ISBN" />
+                        <TableColumn fx:id="colum_title" prefWidth="75.0" text="TITULO" />
+                        <TableColumn fx:id="colum_author" prefWidth="75.0" text="AUTOR" />
+                        <TableColumn fx:id="colum_editorial" prefWidth="75.0" text="EDITORIAL" />
+                        <TableColumn fx:id="colum_yearEdition" prefWidth="75.0" text="AÑO EDICION" />
+                        <TableColumn fx:id="colum_kind" prefWidth="75.0" text="GENERO" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </TableView>
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </GridPane>
+            <GridPane fx:id="gpMember" prefHeight="617.0" prefWidth="841.0" style="-fx-background-color: #FFFFFF;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="356.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="568.0" minHeight="10.0" prefHeight="568.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="773.0" spacing="20.0">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Search.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <JFXTextField fx:id="txtSearch" focusColor="#2c65a7" labelFloat="true" onKeyTyped="#handlerSearchMember" prefHeight="25.0" prefWidth="295.0" promptText="Search...">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXButton fx:id="btnAddMember" alignment="CENTER_RIGHT" buttonType="RAISED" onAction="#handlerOpenAddMember" prefHeight="34.0" prefWidth="133.0" text="Añadir Socio" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Add_Member.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnEditMember" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="369.0" layoutY="30.0" onAction="#handlerOpenEditMember" prefHeight="34.0" prefWidth="133.0" text="Editar Socio" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnDeleteMember" alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="522.0" layoutY="30.0" onAction="#handlerDeleteMember" prefHeight="34.0" prefWidth="143.0" text="Eliminar Socio" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <TableView fx:id="tblMember" prefHeight="426.0" prefWidth="821.0" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="columID" prefWidth="75.0" text="ID SOCIO" />
+                      <TableColumn fx:id="columDni" prefWidth="75.0" text="DNI" />
+                      <TableColumn fx:id="columFirstName" prefWidth="75.0" text="NOMBRE" />
+                        <TableColumn fx:id="columLastName" prefWidth="75.0" text="APELLIDOS" />
+                        <TableColumn fx:id="columPhone" prefWidth="75.0" text="TELEFONO" />
+                        <TableColumn fx:id="columMobilePhone" prefWidth="75.0" text="MOVIL" />
+                        <TableColumn fx:id="columEmail" prefWidth="75.0" text="E-MAIL" />
+                        <TableColumn fx:id="columAddress" prefWidth="75.0" text="DIRECCION" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </TableView>
+               </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </GridPane>
+            <GridPane fx:id="gpHome">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <VBox layoutY="7.0" prefHeight="408.0" prefWidth="856.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="7.0">
+                           <children>
+                              <AnchorPane prefHeight="211.0" prefWidth="856.0">
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="DATOS DEL SOCIO." textFill="#2c65a7" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                                    <ImageView fitHeight="24.0" fitWidth="38.0" layoutX="289.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Search.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXTextField fx:id="txtSearchMember" labelFloat="true" layoutX="336.0" layoutY="16.0" onKeyTyped="#handlerSearchMemberLending" prefHeight="25.0" prefWidth="163.0" promptText="Search..." />
+                                    <JFXTextField fx:id="txtMemberName" editable="false" labelFloat="true" layoutX="289.0" layoutY="64.0" prefHeight="25.0" prefWidth="209.0" promptText="NOMBRE" />
+                                    <ImageView fx:id="imgPhotoMember" fitHeight="127.0" fitWidth="110.0" layoutX="627.0" layoutY="14.0" pickOnBounds="true" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="14.0">
+                                       <image>
+                                          <Image url="@../image/noPhotoMember.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXTextField fx:id="txtMemberLastName" editable="false" labelFloat="true" layoutX="289.0" layoutY="134.0" prefHeight="25.0" prefWidth="209.0" promptText="APELLIDOS" />
+                                    <Button fx:id="btnCleanDataMember" contentDisplay="CENTER" layoutX="560.0" layoutY="17.0" mnemonicParsing="false" onAction="#handlerClearDataMember" prefHeight="10.0" prefWidth="10.0" styleClass="button-camera">
+                                       <graphic>
+                                          <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/clean.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <JFXListView fx:id="lvSocio" layoutX="131.0" layoutY="17.0" onMouseClicked="#handelSeleccionarSocio" prefHeight="171.0" prefWidth="135.0" />
+                                    <JFXTextField fx:id="txtDni" editable="false" labelFloat="true" layoutX="604.0" layoutY="147.0" prefHeight="25.0" prefWidth="143.0" promptText="DNI" />
+                                 </children>
+                              </AnchorPane>
+                              <Separator prefWidth="200.0" />
+                              <HBox prefHeight="171.0" prefWidth="856.0">
+                                 <children>
+                                    <AnchorPane prefHeight="166.0" prefWidth="863.0">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="14.0" text="DATOS DEL LIBRO." textFill="#2c65a7" AnchorPane.topAnchor="20.0" />
+                                          <ImageView fx:id="imgCoverBook" fitHeight="110.0" fitWidth="133.0" layoutX="619.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="14.0">
+                                             <image>
+                                                <Image url="@../image/noPhotoBook.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="txt_bookTitle" editable="false" labelFloat="true" layoutX="295.0" layoutY="73.0" prefHeight="25.0" prefWidth="244.0" promptText="TITULO" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="73.0" />
+                                          <ImageView fitHeight="24.0" fitWidth="38.0" layoutX="295.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/searchBook.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="txtBookSearch" labelFloat="true" layoutX="341.0" layoutY="17.0" onKeyTyped="#handlerSearchBookLending" prefHeight="25.0" prefWidth="163.0" promptText="Search..." />
+                                          <JFXListView fx:id="lvLibro" layoutX="128.0" layoutY="13.0" onMouseClicked="#handlerSeleccionarIsbn" prefHeight="145.0" prefWidth="135.0" />
+                                          <JFXTextField fx:id="txtIsbn" editable="false" labelFloat="true" layoutX="605.0" layoutY="115.0" prefHeight="25.0" prefWidth="143.0" promptText="ISBN" />
+                                          <Button fx:id="btnCleanDataBook" contentDisplay="CENTER" layoutX="563.0" layoutY="18.0" mnemonicParsing="false" onAction="#handlerClearDataBook" prefHeight="10.0" prefWidth="10.0" styleClass="button-camera">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../image/clean.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0" />
+                              <HBox prefHeight="281.0" prefWidth="861.0">
+                                 <children>
+                                    <AnchorPane prefHeight="158.0" prefWidth="672.0">
+                                       <padding>
+                                          <Insets right="10.0" />
+                                       </padding>
+                                       <children>
+                                          <TableView fx:id="tblLending" layoutX="5.0" layoutY="3.0" prefHeight="212.0" prefWidth="601.0">
+                                            <columns>
+                                              <TableColumn fx:id="colum_idLending" prefWidth="104.0" text="ID PRESTAMO" />
+                                              <TableColumn fx:id="colum_lendingDate" prefWidth="196.0" text="FECHA PRESTAMO" />
+                                                <TableColumn fx:id="colum_deliverDate" prefWidth="75.0" text="FECHA PREVISTA DEVOLUCION" />
+                                                <TableColumn fx:id="colum_returnDate" prefWidth="75.0" text="FECHA DEVOLUCION" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                          <JFXButton fx:id="btnCancelLendingMember" buttonType="RAISED" ellipsisString="" layoutX="401.0" layoutY="229.0" onAction="#handlerEliminarPrestamo" prefHeight="34.0" prefWidth="195.0" text="ELIMINAR PRESTAMO" textFill="WHITE">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../image/Cancel.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="btnActualizarPrestamo" buttonType="RAISED" ellipsisString="" layoutX="178.0" layoutY="229.0" onAction="#handlerActualizarPrestamo" prefHeight="34.0" prefWidth="209.0" text="ACTUALIZAR PRESTAMO" textFill="WHITE">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../image/Cancel.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="btnLimpiarPrestamos" buttonType="RAISED" ellipsisString="" layoutX="86.0" layoutY="229.0" onAction="#handlerLimpiarHome" prefHeight="34.0" prefWidth="31.0" textFill="WHITE">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../image/clean.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="255.0" prefWidth="300.0">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="-5.0" prefHeight="255.0" prefWidth="235.0" spacing="30.0">
+                                             <children>
+                                                <Label text="FECHAS DEL  PRESTAMO." textFill="#2c65a7" />
+                                                <JFXDatePicker fx:id="dpLendingDate" defaultColor="#2c65a7" prefHeight="25.0" prefWidth="205.0" promptText="Fecha de prestamo" />
+                                                <JFXDatePicker fx:id="dpDeliverDate" defaultColor="#2c65a7" prefHeight="25.0" prefWidth="212.0" promptText="Fecha prevista entrega" />
+                                                <JFXDatePicker fx:id="dpReturnDate" defaultColor="#2c65a7" prefHeight="25.0" prefWidth="242.0" promptText="Fecha devolución" />
+                                                <JFXButton fx:id="btnSaveHome" buttonType="RAISED" ellipsisString="" onAction="#handlerSaveHome" prefHeight="34.0" prefWidth="204.0" text="GUARDAR PRESTAMO" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <graphic>
+                                                      <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../image/Save.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </JFXButton>
+                                             </children>
+                                             <padding>
+                                                <Insets left="20.0" right="20.0" top="20.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </StackPane>
+   </children>
+</AnchorPane>

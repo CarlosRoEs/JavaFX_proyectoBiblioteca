@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="728.0" stylesheets="@../style/bibliotecaStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddBookController">
+   <children>
+      <BorderPane prefHeight="550.0" prefWidth="765.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#handlerCancel" prefHeight="75.0" prefWidth="300.0" text="CANCELAR" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Cancel.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#handlerSave" prefHeight="75.0" prefWidth="300.0" text="GUARDAR" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
+         <top>
+            <AnchorPane prefHeight="100.0" prefWidth="600.0" styleClass="paneHeader" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label fx:id="lblPaneMember" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="644.0" styleClass="paneHeader" text="Añadir Libro" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <ImageView fx:id="imgCover" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#handlerAddImage" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../image/noPhotoBook.png" />
+               </image>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </ImageView>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="20.0" top="10.0" />
+               </BorderPane.margin>
+               <children>
+                  <JFXTextField fx:id="txtIsbn" labelFloat="true" onKeyTyped="#handlerValidarISBN" promptText="ISBN">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="300.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblIsbn" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="137.0">
+                     <VBox.margin>
+                        <Insets left="150.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Titulo">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblTitulo" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="398.0">
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtAuthor" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Autor">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblAutor" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="397.0">
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtPublisher" labelFloat="true" layoutX="10.0" layoutY="35.0" promptText="Editorial">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblEditorial" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="393.0">
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtYearEdition" labelFloat="true" layoutX="10.0" layoutY="35.0" onKeyTyped="#handlerValidarEdicion" promptText="Año de Edición">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="300.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblAnioEdicion" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="149.0">
+                     <VBox.margin>
+                        <Insets left="150.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXComboBox fx:id="cmbKind" labelFloat="true" prefWidth="236.0" promptText="Género">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

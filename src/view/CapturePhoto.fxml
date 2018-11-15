@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="400.0" stylesheets="@../style/bibliotecaStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CapturePhotoController">
+   <children>
+      <VBox layoutX="44.0" prefHeight="463.0" prefWidth="300.0" spacing="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="imgFoto" fitHeight="200.0" fitWidth="178.0" pickOnBounds="true">
+               <VBox.margin>
+                  <Insets left="75.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button fx:id="btnReload" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handlerReloadWebCam" prefHeight="60.0" prefWidth="60.0" styleClass="button-camera">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/refresh.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnTakePicture" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handlerTakepictureWebCam" prefHeight="60.0" prefWidth="60.0" styleClass="button-camera">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Camera.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSave" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handlerSave" prefHeight="60.0" prefWidth="60.0" styleClass="button-camera">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/savePhoto.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="40.0" top="15.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="40.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

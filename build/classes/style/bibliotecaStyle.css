@@ -1,0 +1,31 @@
+
+
+.paneHeader{
+    -fx-background-color: linear-gradient(to left, #F4C6B9, #DC4D41);
+    -fx-text-fill: #2C65A7;
+}
+
+.button{
+    -fx-background-color:  #2C65A7;
+}
+.button:focus{
+    -fx-background-color:  #DC4E42;
+}
+
+.button-camera{
+    -fx-background-color:  #2C65A7;
+    -fx-background-radius: 30px;
+}
+
+.button:hover:focus{
+    -fx-background-color: #ddefff;
+}
+
+
+.tab .tab-lab{
+    -fx-text-fill: #2C65A7;
+}
+
+.grid-pane{
+    background: #FFFFFF;
+}

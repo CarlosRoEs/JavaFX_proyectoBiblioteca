@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="550.0" stylesheets="@../style/bibliotecaStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateMemberController">
+   <children>
+      <BorderPane prefHeight="473.0" prefWidth="550.0">
+         <right>
+            <VBox prefHeight="318.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgPhoto" fitHeight="130.0" fitWidth="130.0" onMouseClicked="#handleSelectPhoto" pickOnBounds="true">
+                     <VBox.margin>
+                        <Insets left="40.0" top="40.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../image/noPhotoMember.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#handlerOpenCamera" prefHeight="67.0" prefWidth="100.0" text="FOTO" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="55.0" top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Camera.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#handlerCancel" prefHeight="75.0" prefWidth="300.0" text="CANCELAR" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Cancel.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#handlerSave" prefHeight="75.0" prefWidth="300.0" text="GUARDAR" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </HBox>
+         </bottom>
+         <left>
+            <VBox prefHeight="329.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTextField fx:id="txtDni" labelFloat="true" onKeyTyped="#handlerValidateDNI" prefWidth="360.0" promptText="Dni">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblDni" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="408.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtFirstName" labelFloat="true" onKeyTyped="#handlerValildateFirstName" promptText="Nombre">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblFirstName" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="438.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtLastName" labelFloat="true" onKeyTyped="#handlerValidateLastName" promptText="Apellidos">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblLastName" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="407.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="dpBirthdate" defaultColor="#4059a9" editable="false" promptText="Fecha de Nacimiento">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXDatePicker>
+                  <JFXTextField fx:id="txtPhone" labelFloat="true" onKeyTyped="#handlerValidatePhone" promptText="Teléfono">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblPhone" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="413.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtMobilePhone" labelFloat="true" onKeyTyped="#handlerValidateMobilePhone" promptText="Móvil">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblMobilePhone" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="400.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtEmail" labelFloat="true" onKeyTyped="#handlerValidateEmail" promptText="E-mail">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblEmail" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="408.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtAddress" labelFloat="true" onKeyTyped="#handlerValidateAddress" promptText="Dirección">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="lblAddress" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="411.0" stylesheets="@../style/bibliotecaStyle.css">
+                     <VBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <top>
+            <AnchorPane prefHeight="100.0" prefWidth="600.0" styleClass="paneHeader" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label fx:id="lblPaneMember" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="644.0" styleClass="paneHeader" text="Actualizar Socio" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
