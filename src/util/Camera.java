@@ -5,14 +5,13 @@
  */
 package util;
 
-import java.io.File;
+import controller.BibliotecaController;
+import controller.CapturePhotoController;
 import java.io.IOException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -21,17 +20,22 @@ import javafx.stage.Stage;
  */
 public class Camera {
     
+    BibliotecaController biblioteca = new BibliotecaController();
+    
     public void openCapturePhoto(String urlFXML, String urlStyle) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(urlFXML/*"/view/CapturePhoto.fxml"*/));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(urlFXML));
+            Parent root = loader.load();
+            //Parent root = FXMLLoader.load(getClass().getResource(urlFXML));
 
             Stage stage = new Stage();
 
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(urlStyle/*"/style/bibliotecaStyle"*/);
+            scene.getStylesheets().add(urlStyle);
             stage.setScene(scene);
             stage.show();
 
+           
         } catch (IOException e) {
             System.out.println("No se ha cargado la ventana.");
             e.printStackTrace();

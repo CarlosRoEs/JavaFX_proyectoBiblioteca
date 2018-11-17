@@ -201,6 +201,12 @@ public class AddMemberController implements Initializable {
         txtEmail.clear();
         txtAddress.clear();
         lblFirstName.setText("");
+        lblAddress.setText("");
+        lblDni.setText("");
+        lblEmail.setText("");
+        lblLastName.setText("");
+        lblMobilePhone.setText("");
+        lblPhone.setText("");
         imgPhoto.setImage(new Image("image/noPhotoMember.png"));
     }
 
@@ -457,10 +463,10 @@ public class AddMemberController implements Initializable {
         boolean esBueno = matcher.matches();
 
         if (esBueno) {
-            lblAddress.setText("E-mail válido");
+            lblAddress.setText("Dirección válida");
             lblAddress.setStyle("-fx-text-fill: #4059a9");
         } else {
-            lblAddress.setText("E-mail no válido");
+            lblAddress.setText("E-Dirección no válida");
             lblAddress.setStyle("-fx-text-fill: #D34336");
         }
         if (txtAddress.getText().equals("")) {

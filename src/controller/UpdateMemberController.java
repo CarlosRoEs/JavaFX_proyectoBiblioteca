@@ -298,6 +298,12 @@ String regex = "^[a-zA-Z0-9.//ºª/ -]+";
         txtEmail.clear();
         txtAddress.clear();
         lblFirstName.setText("");
+        lblAddress.setText("");
+        lblDni.setText("");
+        lblEmail.setText("");
+        lblLastName.setText("");
+        lblMobilePhone.setText("");
+        lblPhone.setText("");
         imgPhoto.setImage(new Image("image/noPhotoMember.png"));
     }
 

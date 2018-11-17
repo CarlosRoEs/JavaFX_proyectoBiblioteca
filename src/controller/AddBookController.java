@@ -179,7 +179,11 @@ public class AddBookController implements Initializable {
         txtPublisher.clear();
         txtYearEdition.clear();
         cmbKind.getPromptText();
-        
+        lblAnioEdicion.setText("");
+        lblAutor.setText("");
+        lblEditorial.setText("");
+        lblIsbn.setText("");
+        lblTitulo.setText("");
         imgCover.setImage(new Image("image/noPhotoBook.png"));
     }
     
@@ -189,7 +193,7 @@ public class AddBookController implements Initializable {
     private void añadirLibro(){
         boolean result = false;
 
-        int isbn = Integer.parseInt(txtIsbn.getText().trim());
+        String isbn = txtIsbn.getText().trim();
         String title = txtTitle.getText().trim();
         String author = txtAuthor.getText().trim();
         String publisher = txtPublisher.getText().trim();
@@ -247,7 +251,7 @@ public class AddBookController implements Initializable {
      */
     @FXML
     private void handlerValidarISBN(KeyEvent event) {
-        String regex = "^(97(8|9))?\\d{9}(\\d|X)$";
+        String regex = "(ISBN[-]*(1[03])*[ ]*(: ){0,1})*(([0-9Xx][- ]*){13}|([0-9Xx][- ]*){10})";
         String isbn = txtIsbn.getText() + event.getCharacter();
 
         Pattern pattern = Pattern.compile(regex);
@@ -288,6 +292,23 @@ public class AddBookController implements Initializable {
         }
         if (txtYearEdition.getText().equals("")) {
             lblAnioEdicion.setText("");
+        }
+    }
+    
+    /**
+     * Valida que el dato se corresponde con lo esperado.
+     * Restringe la entrada de datos.
+     * @param event se le pasa como parametro la acción que realiza.
+     */
+    @FXML
+    private void handleValidarLetrasAutor(KeyEvent event) {
+        char caracter = event.getCharacter().charAt(0);
+        if ((!Character.isLetter(caracter)) && (!Character.isSpaceChar(caracter))) {
+            event.consume();
+            lblAutor.setText("No se permiten números.");
+            lblAutor.setStyle("-fx-text-fill: #D34336");
+        } else {
+            lblAutor.setText(" ");
         }
     }
     

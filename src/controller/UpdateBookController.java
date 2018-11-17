@@ -171,6 +171,11 @@ public class UpdateBookController implements Initializable{
         txtPublisher.clear();
         txtYearEdition.clear();
         cmbKind.getPromptText();
+        lblAnioEdicion.setText("");
+        lblAutor.setText("");
+        lblEditorial.setText("");
+        lblIsbn.setText("");
+        lblTitulo.setText("");
         imgCover.setImage(new Image("image/noPhotoBook.png"));
     }
     
@@ -198,7 +203,7 @@ public class UpdateBookController implements Initializable{
     private void updateBook(){
         boolean result = false;
         
-        int isbn = Integer.parseInt(txtIsbn.getText().trim());
+        String isbn = txtIsbn.getText().trim();
         String title = txtTitle.getText().trim();
         String author = txtAuthor.getText().trim();
         String publisher = txtPublisher.getText().trim();

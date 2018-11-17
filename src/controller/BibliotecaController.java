@@ -154,6 +154,12 @@ public class BibliotecaController implements Initializable {
      * Almacena datos del socio.
      */
     private Member selectedMember;
+
+    public Member getSelectedMember() {
+        return selectedMember;
+    }
+    
+    
     /**
      * Accede al controlador de AddSocio.
      */
@@ -246,7 +252,7 @@ public class BibliotecaController implements Initializable {
      * Columna que muestra el ISBN del libro.
      */
     @FXML
-    private TableColumn<Book, Integer> colum_isbn;
+    private TableColumn<Book, String> colum_isbn;
     /**
      * Columna que muestra el titulo del libro.
      */
@@ -452,11 +458,12 @@ public class BibliotecaController implements Initializable {
         iniciarColumnaTablaPrestamos();
         seleccionarPrestamosActualizado();
         cargarTablaPrestamos();
-        seleccionarPrestamos();
+//        seleccionarPrestamos();
         datosLista();
         llenarComboInformeSocio();
         llenarComboInformeLibro();
         llenarTipoPrestamo();
+        lblPane.setText("HOME");
 
 
         /*
@@ -501,6 +508,8 @@ public class BibliotecaController implements Initializable {
             gpBook.toFront();
         } else if (event.getSource() == btnReports) {
             lblPane.setText("INFORMES");
+            recargarComboInfomeLibro();
+            recargarComboInformSocio();
             gpReports.toFront();
         }
     }
@@ -757,7 +766,7 @@ public class BibliotecaController implements Initializable {
     private void seleccionarIsbnLista() {
         selectedListaBook = (Book) lvLibro.getSelectionModel().getSelectedItem();
         if (selectedListaBook != null) {
-            txtIsbn.setText(String.valueOf(selectedListaBook.getIsbn()));
+            txtIsbn.setText(selectedListaBook.getIsbn());
             txt_bookTitle.setText(selectedListaBook.getTitle());
             imgCoverBook.setImage(new Image("file:///" + selectedListaBook.getCover()));
             idBook = selectedListaBook.getIdBook();
@@ -805,7 +814,7 @@ public class BibliotecaController implements Initializable {
         LendingDAO_impl lendingDAO = new LendingDAO_impl();
 
         result = lendingDAO.update(lending);
-        System.out.println(lending.getIdLending() + " ##############");
+        
         System.out.println(result);
         if (result == true) {
             alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -898,7 +907,7 @@ public class BibliotecaController implements Initializable {
             preparedStatement.setInt(1, idBook);
             ResultSet result = preparedStatement.executeQuery();
             while (result.next()) {
-                book.setIsbn(result.getInt("isbn"));
+                book.setIsbn(result.getString("isbn"));
                 book.setTitle(result.getString("title"));
                 book.setCover(result.getString("cover"));
             }
@@ -910,35 +919,35 @@ public class BibliotecaController implements Initializable {
         }
     }
 
-    /**
-     * Método para seleccionar un miembro.
-     */
-    private void seleccionarPrestamos() {
-
-        tblLending.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
-            @Override
-            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                selectedLending = (Lending) newValue;
-                limpiarCamposSocio();
-                limpiarCamposLibros();
-                idMember = selectedLending.getIdMember();
-                dameSocio();
-                idBook = selectedLending.getIdBook();
-                dameLibro();
-                dpLendingDate.setValue(LocalDate.parse(selectedLending.getLendingDate()));
-                dpDeliverDate.setValue(LocalDate.parse(selectedLending.getDeliverDate()));
-
-                txtDni.setText(member.getDni());
-                txtMemberName.setText(member.getFirstName());
-                txtMemberLastName.setText(member.getLastName());
-                imgPhotoMember.setImage(new Image("file:///" + member.getPhoto()));
-
-                txtIsbn.setText(String.valueOf(book.getIsbn()));
-                txt_bookTitle.setText(book.getTitle());
-                imgCoverBook.setImage(new Image("file:///" + book.getCover()));
-            }
-        });
-    }
+//    /**
+//     * Método para seleccionar un miembro.
+//     */
+//    private void seleccionarPrestamos() {
+//
+//        tblLending.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+//            @Override
+//            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+//                selectedLending = (Lending) newValue;
+//                limpiarCamposSocio();
+//                limpiarCamposLibros();
+//                idMember = selectedLending.getIdMember();
+//                dameSocio();
+//                idBook = selectedLending.getIdBook();
+//                dameLibro();
+//                dpLendingDate.setValue(LocalDate.parse(selectedLending.getLendingDate()));
+//                dpDeliverDate.setValue(LocalDate.parse(selectedLending.getDeliverDate()));
+//
+//                txtDni.setText(member.getDni());
+//                txtMemberName.setText(member.getFirstName());
+//                txtMemberLastName.setText(member.getLastName());
+//                imgPhotoMember.setImage(new Image("file:///" + member.getPhoto()));
+//
+//                txtIsbn.setText(book.getIsbn());
+//                txt_bookTitle.setText(book.getTitle());
+//                imgCoverBook.setImage(new Image("file:///" + book.getCover()));
+//            }
+//        });
+//    }
 
     /**
      * Método para seleccionar un miembro.
@@ -957,16 +966,19 @@ public class BibliotecaController implements Initializable {
                 dameLibro();
                 dpLendingDate.setValue(LocalDate.parse(selectedLending.getLendingDate()));
                 dpDeliverDate.setValue(LocalDate.parse(selectedLending.getDeliverDate()));
-                dpReturnDate.setValue(LocalDate.parse(selectedLending.getReturnDate()));
-
+                
+                System.out.println(selectedLending.getReturnDate());
                 txtDni.setText(member.getDni());
                 txtMemberName.setText(member.getFirstName());
                 txtMemberLastName.setText(member.getLastName());
                 imgPhotoMember.setImage(new Image("file:///" + member.getPhoto()));
 
-                txtIsbn.setText(String.valueOf(book.getIsbn()));
+                txtIsbn.setText(book.getIsbn());
                 txt_bookTitle.setText(book.getTitle());
                 imgCoverBook.setImage(new Image("file:///" + book.getCover()));
+                if(selectedLending.getReturnDate() != null)
+                    dpReturnDate.setValue(LocalDate.parse(selectedLending.getReturnDate()));
+                
             }
         });
     }
@@ -1056,7 +1068,9 @@ public class BibliotecaController implements Initializable {
      */
     private void AbrirVentanaSocio() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/AddMember.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AddMember.fxml"));
+            Parent root = loader.load();
+            //Parent root = FXMLLoader.load(getClass().getResource("/view/AddMember.fxml"));
 
             Stage stage = new Stage();
             Scene scene = new Scene(root);
@@ -1069,6 +1083,7 @@ public class BibliotecaController implements Initializable {
             stage.setOnCloseRequest(event -> {
                 recargarTablaSocio(new ActionEvent());
                 recargarListaDni(new ActionEvent());
+                
             });
 
         } catch (IOException e) {
@@ -1200,7 +1215,7 @@ public class BibliotecaController implements Initializable {
      */
     private void eliminarSocio() {
         MemberDAO_impl memberDao = new MemberDAO_impl();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
 
         alert.setHeaderText("Eliminar Socio");
         alert.setContentText("¿Quiere ELIMINAR el dato seleccionado.?.");
@@ -1427,6 +1442,7 @@ public class BibliotecaController implements Initializable {
             bookDAO.remove(selectedBook);
             tblBook.setItems(tablaLibro());
             limpiarCamposSocio();
+            llenarComboInformeLibro();
             alert.setHeaderText("Libro eliminado");
             alert.setContentText("Libro eliminado con exito.");
             alert.showAndWait();
@@ -1520,7 +1536,13 @@ public class BibliotecaController implements Initializable {
      */
     private void llenarComboInformeSocio() {
         cmbSeleccionaSocio.setItems(listaSocio());
-        System.out.println("Llenar combo box " + listaSocio());
+    }
+    
+    /**
+     * Recarga el seleccionableInformeSocio.
+     */
+    private void recargarComboInformSocio(){
+        llenarComboInformeSocio();
     }
 
     /**
@@ -1530,7 +1552,7 @@ public class BibliotecaController implements Initializable {
      */
     @FXML
     private void handlerMostrarDatosLibros(ActionEvent event) {
-        int libro = Integer.parseInt(cmbSeleccionaLibro.getSelectionModel().getSelectedItem().toString());
+        String libro = cmbSeleccionaLibro.getSelectionModel().getSelectedItem().toString();
         System.out.println(libro);
 
         try {
@@ -1546,6 +1568,7 @@ public class BibliotecaController implements Initializable {
             viewerfx.show();
 
         } catch (Exception ex) {
+            System.out.println("Error informe libros " + ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -1599,6 +1622,13 @@ public class BibliotecaController implements Initializable {
      */
     private void llenarComboInformeLibro() {
         cmbSeleccionaLibro.setItems(listaLibro());
+    }
+    
+    /**
+     * Recarga los datos del desplegable libro.
+     */
+    private void recargarComboInfomeLibro(){
+        llenarComboInformeLibro();
     }
 
     /**
@@ -1674,7 +1704,7 @@ public class BibliotecaController implements Initializable {
 
         if (cmbDinamicoPrestamo.getPromptText().equals("Seleccione un socio")) {
             String dni = cmbDinamicoPrestamo.getSelectionModel().getSelectedItem().toString();
-            System.out.println(dni);
+            System.out.println("dni " + dni);
 
             try {
                 Node source = (Node) event.getSource();
@@ -1692,7 +1722,7 @@ public class BibliotecaController implements Initializable {
                 ex.printStackTrace();
             }
         } else if (cmbDinamicoPrestamo.getPromptText().equals("Seleccione un libro")) {
-            int libro = Integer.parseInt(cmbDinamicoPrestamo.getSelectionModel().getSelectedItem().toString());
+            String libro = cmbDinamicoPrestamo.getSelectionModel().getSelectedItem().toString();
             System.out.println(libro);
 
             try {

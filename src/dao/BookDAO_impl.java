@@ -45,7 +45,7 @@ public class BookDAO_impl implements BookDAO {
 
         try {
             preparedStatement = CONNECTION.prepareStatement(sql);
-            preparedStatement.setInt(1, book.getIsbn());
+            preparedStatement.setString(1, book.getIsbn());
             preparedStatement.setString(2, book.getTitle());
             preparedStatement.setString(3, book.getAuthor());
             preparedStatement.setString(4, book.getPublisher());
@@ -83,7 +83,7 @@ public class BookDAO_impl implements BookDAO {
         
         try {
             preparedStatement = CONNECTION.prepareStatement(sql);
-            preparedStatement.setInt(1, book.getIsbn());
+            preparedStatement.setString(1, book.getIsbn());
             preparedStatement.setString(2, book.getTitle());
             preparedStatement.setString(3, book.getAuthor());
             preparedStatement.setString(4, book.getPublisher());
@@ -163,7 +163,7 @@ public class BookDAO_impl implements BookDAO {
             while (result.next()) {
                 Book book = new Book();
                 book.setIdBook(Integer.parseInt(result.getString("idBook")));
-                book.setIsbn(Integer.parseInt(result.getString("isbn")));
+                book.setIsbn(result.getString("isbn"));
                 book.setTitle(result.getString("title"));
                 book.setAuthor(result.getString("author"));
                 book.setPublisher(result.getString("publisher"));

@@ -114,7 +114,7 @@
                         <Insets right="20.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXTextField fx:id="txtAuthor" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Autor">
+                  <JFXTextField fx:id="txtAuthor" labelFloat="true" layoutX="10.0" layoutY="10.0" onKeyTyped="#handleValidarLetrasAutor" promptText="Autor">
                      <font>
                         <Font size="14.0" />
                      </font>

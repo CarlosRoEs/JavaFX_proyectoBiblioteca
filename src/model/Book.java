@@ -17,7 +17,7 @@ public class Book {
     /**
      * Almacena el isbn del libro.
      */
-    private int isbn;
+    private String isbn;
     /**
      * Almacena el titulo del libro.
      */
@@ -69,7 +69,7 @@ public class Book {
      * @param kind
      * @param cover 
      */
-    public Book(int isbn, String title, String author, String publisher, int year_edition, String kind, String cover) {
+    public Book(String isbn, String title, String author, String publisher, int year_edition, String kind, String cover) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -90,7 +90,7 @@ public class Book {
      * @param kind
      * @param cover 
      */
-    public Book(int idBook, int isbn, String title, String author, String publisher, int year_edition, String kind, String cover) {
+    public Book(int idBook, String isbn, String title, String author, String publisher, int year_edition, String kind, String cover) {
         this.idBook = idBook;
         this.isbn = isbn;
         this.title = title;
@@ -120,7 +120,7 @@ public class Book {
      * Devuelve el isbn del libro.
      * @return el isbn.
      */
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
     
@@ -128,7 +128,7 @@ public class Book {
      * Modifica el isbn del libro.
      * @param isbn 
      */
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
     
@@ -233,6 +233,6 @@ public class Book {
      * @return el isbn como String. 
      */
     public String toString(){
-        return String.valueOf(getIsbn());
+        return getIsbn();
     }
 }

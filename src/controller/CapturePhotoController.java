@@ -16,9 +16,11 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -42,6 +44,7 @@ public class CapturePhotoController implements Initializable {
      */
     private boolean isCaptured = false;
     
+    String routePhoto;
     /**
      * Comprueba si es capturado y la cierra
      */
@@ -65,6 +68,7 @@ public class CapturePhotoController implements Initializable {
         if (file != null) {
             try {
                 ImageIO.write(SwingFXUtils.fromFXImage(imgFoto.getImage(), null), "PNG", file);
+                
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }

@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Biblioteca/src/model/Book.java</file>
-            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Biblioteca/src/model/Lending.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Biblioteca/src/controller/BibliotecaController.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Biblioteca/src/dao/LendingDAO_impl.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Biblioteca/src/jdbc/ConnectionJDBC.java</file>
         </group>
     </open-files>
 </project-private>
