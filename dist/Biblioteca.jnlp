@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Biblioteca.jar" size="183985" download="eager" />
+    <jar href="Biblioteca.jar" size="183978" download="eager" />
     <jar href="lib\JasperViewerFX.jar" size="7917003" download="eager" />
     <jar href="lib\bridj-0.6.3-20130316.190111-13.jar" size="893456" download="eager" />
     <jar href="lib\commons-digester-2.1.jar" size="196768" download="eager" />

@@ -398,35 +398,7 @@ public class BibliotecaController implements Initializable {
      * Variable para almacenar la conexión a la BD.
      */
     private final Connection CONNECTION;
-    @FXML
-    private JFXButton btnHelp;
-    @FXML
-    private StackPane stackPane;
-    @FXML
-    private JFXButton btnAddBook;
-    @FXML
-    private JFXButton btnEditBook;
-    @FXML
-    private JFXButton btnDeleteBook;
-    @FXML
-    private JFXButton btnAddMember;
-    @FXML
-    private JFXButton btnEditMember;
-    @FXML
-    private JFXButton btnDeleteMember;
-    @FXML
-    private Button btnCleanDataMember;
-    @FXML
-    private Button btnCleanDataBook;
-    @FXML
-    private JFXButton btnCancelLendingMember;
-    @FXML
-    private JFXButton btnActualizarPrestamo;
-    @FXML
-    private JFXButton btnLimpiarPrestamos;
-    @FXML
-    private JFXButton btnSaveHome;
-
+    
     /**
      * Constructor en el que se inicializa la variable final CONNECTION.
      */

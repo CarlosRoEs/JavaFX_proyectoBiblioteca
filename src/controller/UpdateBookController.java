@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Book;
+import util.Camera;
 
 /**
  *
@@ -130,6 +131,16 @@ public class UpdateBookController implements Initializable{
     private void handlerSave(ActionEvent event) {
         updateBook();
         
+    }
+    
+    /**
+     * Abre la ventana de la webCam.
+     * @param event se le pasa como parametro la acción que realiza.
+     */
+    @FXML
+    private void handlerOpenCamera(ActionEvent event) {
+        Camera camera = new Camera();
+        camera.openCapturePhoto("/view/CapturePhoto.fxml", "/style/bibliotecaStyle");
     }
     /**
      * Llena el desplegable con los géneros de los libros.

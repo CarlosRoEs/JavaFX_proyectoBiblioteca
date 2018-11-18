@@ -565,7 +565,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="24.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../image/Cancel.png" />
+                                                      <Image url="@../image/Lending.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
